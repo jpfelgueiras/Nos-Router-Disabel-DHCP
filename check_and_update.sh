@@ -11,9 +11,7 @@ check_and_update() {
     AUTH_HEADER="Authorization: Bearer $AUTH_TOKEN"
 
     # Perform the GET request and parse the JSON response
-    response=$(curl --location --header "$AUTH_HEADER" "$API_URL")
-
-    echo $response
+    response=$(curl --location --silent --header "$AUTH_HEADER" "$API_URL")
 
     # Extract the "Enabled" field from the JSON response
     enabled=$(echo "$response" | jq -r '.[0].Enabled')
