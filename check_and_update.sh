@@ -6,14 +6,14 @@ check_and_update() {
     : "${DEVICE:?DEVICE is not set}"
     : "${AUTH_TOKEN:?AUTH_TOKEN is not set}"
 
-    echo ${DEVICE}
-
     # Define the API URL and headers
     API_URL="https://api.clg.nos.pt/nosnet/router-manager-api/api/v3/device/$DEVICE/settings/dhcps?interfaceName=Lan1"
     AUTH_HEADER="Authorization: Bearer $AUTH_TOKEN"
 
     # Perform the GET request and parse the JSON response
-    response=$(curl --location --silent --header "$AUTH_HEADER" "$API_URL")
+    response=$(curl --location --header "$AUTH_HEADER" "$API_URL")
+
+    echo $response
 
     # Extract the "Enabled" field from the JSON response
     enabled=$(echo "$response" | jq -r '.[0].Enabled')
