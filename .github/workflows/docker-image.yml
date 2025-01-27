@@ -51,5 +51,5 @@ jobs:
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/nos-router-disabel-dhcp:latest
             ${{ secrets.DOCKER_USERNAME }}/nos-router-disabel-dhcp:${{ github.sha }}
-            ${{ secrets.DOCKER_USERNAME }}/nos-router-disabel-dhcp:${{ env.DOCKER_TAG }}  # Use cleaned tag
+            ${{ secrets.DOCKER_USERNAME }}/nos-router-disabel-dhcp:${{ env.DOCKER_TAG }} 
 
