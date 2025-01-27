@@ -37,5 +37,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/Nos-Router-Disabel-DHCP:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/nos-router-disabel-dhcp:latest
 
