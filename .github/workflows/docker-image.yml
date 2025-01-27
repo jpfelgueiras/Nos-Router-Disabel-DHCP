@@ -3,10 +3,14 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - main  # Trigger on pushes to the main branch
+      - main
+      - dev  # Add dev branch here
+    tags:
+      - 'v*'  # Trigger on tags that start with "v"
   pull_request:
     branches:
-      - main  # Also trigger on pull requests to the main branch
+      - main
+      - dev  # Also trigger on pull requests to main or dev branches
 
 jobs:
   build:
@@ -37,5 +41,8 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/nos-router-disabel-dhcp:latest
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/nos-router-disabel-dhcp:latest
+            ${{ secrets.DOCKER_USERNAME }}/nos-router-disabel-dhcp:${{ github.sha }}
+            ${{ secrets.DOCKER_USERNAME }}/nos-router-disabel-dhcp:${{ github.ref_name }}
 
