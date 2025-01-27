@@ -6,6 +6,8 @@ check_and_update() {
     : "${DEVICE:?DEVICE is not set}"
     : "${AUTH_TOKEN:?AUTH_TOKEN is not set}"
 
+    echo ${DEVICE}
+
     # Define the API URL and headers
     API_URL="https://api.clg.nos.pt/nosnet/router-manager-api/api/v3/device/$DEVICE/settings/dhcps?interfaceName=Lan1"
     AUTH_HEADER="Authorization: Bearer $AUTH_TOKEN"

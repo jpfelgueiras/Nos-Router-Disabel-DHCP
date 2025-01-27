@@ -3,6 +3,7 @@ version: '3.8'
 services:
   dhcp_checker:
     build: .
+    image: jpfelgueiras/nos-router-disabel-dhcp
     environment:
       - DEVICE=${DEVICE}
       - AUTH_TOKEN=${AUTH_TOKEN}
