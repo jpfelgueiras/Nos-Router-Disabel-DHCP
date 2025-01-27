@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  dhcp_checker:
+    build: .
+    environment:
+      - DEVICE=${DEVICE}
+      - AUTH_TOKEN=${AUTH_TOKEN}
+      - REFRESH=${REFRESH}
